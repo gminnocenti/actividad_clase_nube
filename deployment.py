@@ -13,8 +13,8 @@ key = os.getenv("key")
 
 
 from azureml.core import Workspace
-"""# Create a new workspace
-ws = Workspace.create(name="workspace_class",
+# Create a new workspace
+ws = Workspace.create(name="workspace_class2",
                       subscription_id = key,
                       resource_group = "class_resource_group",
                       location = "centralindia")
@@ -23,6 +23,7 @@ ws = Workspace.create(name="workspace_class",
 ws = Workspace.get(name="workspace_class",
                       subscription_id = key,
                       resource_group = "class_resource_group")
+"""
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
