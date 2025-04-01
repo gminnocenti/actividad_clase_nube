@@ -49,7 +49,8 @@ service = Model.deploy(workspace=ws,
                        name="xgboost-service",
                        models=[model],
                        inference_config=inference_config,
-                       deployment_config=deployment_config)
+                       deployment_config=deployment_config,
+                       overwrite=True,)
 
 service.wait_for_deployment(show_output=True)
 
