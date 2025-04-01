@@ -35,7 +35,7 @@ print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print("ROC AUC:", roc_auc_score(y_test, y_proba))
 
 file = open('model.pkl', 'wb')
-pickle.dump(reg, file)
+pickle.dump(model, file)
 file.close()
 
 
