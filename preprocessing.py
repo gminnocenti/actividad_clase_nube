@@ -14,16 +14,15 @@ class PreprocessData:
     """Demonstration of how to use the class!
 
     preprocessor = PreprocessData(data)
-    preprocessor.preprocess_data()
-    preprocessor.get_data()
+    x_train, y_train = preprocessor.preprocess_and_split_data()
 
-    -> Returns the preprocessed data.
+    >>> Returns the preprocessed data.
     """
 
     def __init__(self, data: pd.DataFrame):
         self.data = data
 
-    def preprocess_data(self, random_state: int = 42):
+    def preprocess_and_split_data(self, random_state: int = 42):
         X = data.drop(columns=["Bankrupt?"])
         y = data["Bankrupt?"]
         smote = SMOTE(random_state=random_state)
@@ -39,7 +38,7 @@ class PreprocessData:
         high_vif_features_smote = vif_data_smote[vif_data_smote["VIF"] > 5]
 
         X_smote_reduced = X_smote.drop(columns=high_vif_features_smote["feature"])
-        self.data = X_smote_reduced
+        return X_smote_reduced, y_smote
 
     def get_data(self):
         return self.data
