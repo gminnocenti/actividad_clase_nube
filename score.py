@@ -18,7 +18,7 @@ def run(raw_data):
     try:
         data = json.loads(raw_data)['data'][0]
         data = pd.DataFrame(data)
-        data_df = data_df.drop(columns=[
+        data_df = data.drop(columns=[
         " ROA(C) before interest and depreciation before interest",
         " ROA(A) before interest and % after tax",
         " ROA(B) before interest and depreciation after tax",

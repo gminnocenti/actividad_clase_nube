@@ -14,10 +14,9 @@ key = os.getenv("key")
 
 from azureml.core import Workspace
 # Create a new workspace
-ws = Workspace.create(name="workspace_class2",
+ws = Workspace.get(name="workspace_class4",
                       subscription_id = key,
-                      resource_group = "class_resource_group",
-                      location = "centralindia")
+                      resource_group = "class_resource_group4")
 
 """
 ws = Workspace.get(name="workspace_class",
