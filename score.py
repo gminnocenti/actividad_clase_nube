@@ -6,6 +6,7 @@ import logging
 from azureml.core.model import Model
 
 
+
 def init():
     global model
 
