@@ -4,19 +4,17 @@ import json
 from dotenv import load_dotenv
 import os
 
-# Load variables from .env file into the environment
 load_dotenv()
 
-# Now you can access them using os.getenv
 key = os.getenv("key")
 
 
 
 from azureml.core import Workspace
-# Create a new workspace
-ws = Workspace.get(name="workspace_class4",
-                      subscription_id = key,
-                      resource_group = "class_resource_group4")
+ws = Workspace.create(name="workspace_class4",
+                      subscription_id = key, # replace this value with your subscription id
+                      resource_group = "class_resource_group4",
+                      location="brazilsouth")
 
 """
 ws = Workspace.get(name="workspace_class",
@@ -26,24 +24,20 @@ ws = Workspace.get(name="workspace_class",
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-# Create a new environment for deployment
 env = Environment("xgboost-env")
 env.python.conda_dependencies.add_pip_package("xgboost")
 env.python.conda_dependencies.add_pip_package("numpy")
 env.python.conda_dependencies.add_pip_package("joblib")
 env.python.conda_dependencies.add_pip_package("pandas")
 
-# Set up the inference configuration
 inference_config = InferenceConfig(entry_script="score.py", environment=env)
 
 from azureml.core.webservice import AciWebservice, Webservice
 from azureml.core.model import Model
-# Define the deployment configuration (adjust resources as needed)
 deployment_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
 
-# Deploy the model
 model = Model.register(workspace=ws,
-                       model_path="model.pkl",  # Path to your .pkl file
+                       model_path="model.pkl",  
                        model_name="model")
 service = Model.deploy(workspace=ws,
                        name="xgboost-service",
@@ -56,7 +50,6 @@ service.wait_for_deployment(show_output=True)
 
 print(service.get_logs())
 
-# Print the scoring URI
 print("Scoring URI:", service.scoring_uri)
 
 scoring_uri = service.scoring_uri

@@ -3,7 +3,6 @@ pandas==2.2.3
 numpy
 scikit-learn==1.6.1
 matplotlib
-tensorflow==2.19.0
 kagglehub==0.3.10
 imblearn
 statsmodels
