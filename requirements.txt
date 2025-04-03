@@ -7,3 +7,4 @@ kagglehub==0.3.10
 imblearn
 statsmodels
 xgboost
+dotenv
