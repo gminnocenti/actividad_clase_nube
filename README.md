@@ -38,15 +38,15 @@ El proyecto fue dividido entre tres equipos principales:
 
 ## Pasos para Desplegar el Proyecto
 
-1. **Instala las dependencias.**  
+
+1. **Haz un fork del repositorio.**  
+   Clona el repositorio en tu máquina local usando Git o descarga el ZIP.
+2. **Instala las dependencias.**  
    Asegúrate de tener Python instalado. Luego, en la terminal, ejecuta:
 
    ```bash
    pip install -r requirements.txt
-
-2. **Haz un fork del repositorio.**  
-   Clona el repositorio en tu máquina local usando Git o descarga el ZIP.
-
+    ```
 3. **Entrena el modelo.**  
    Ejecuta el archivo `Model.py`, el cual llama a la clase `PreprocessData` del archivo `preprocessing.py` para limpiar la base de datos, entrenar un modelo de clasificación con **XGBoost** y guardarlo como un archivo `.pkl`.
 
