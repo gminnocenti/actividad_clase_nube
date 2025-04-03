@@ -1,0 +1,9 @@
+azureml-core
+pandas==2.2.3
+numpy
+scikit-learn==1.6.1
+matplotlib
+kagglehub==0.3.10
+imblearn
+statsmodels
+xgboost
